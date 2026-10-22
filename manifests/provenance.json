@@ -1,0 +1,98 @@
+{
+  "source_versions": {
+    "old_BL": "X710ZCU5CYH4",
+    "new_BL_AP_HOME_CSC": "X710ZCS6EZH3"
+  },
+  "source_digests": {
+    "old_BL": {
+      "bytes": 114258031,
+      "sha256": "1f4676816b3d60799c7f42a07cb2d5958da7e742d54d1f4ac31d6928f9571512",
+      "tar_md5": "9a33990c926cf364224ac94296df5d80",
+      "tar_md5_verified": true
+    },
+    "new_BL": {
+      "bytes": 114206831,
+      "sha256": "f315c630aa58f512cd423ec6f00e2fab5cd46e652c941abcab6bffebf1c1326c",
+      "tar_md5": "d95801c05d6e3a2dfdf4193bedd006b5",
+      "tar_md5_verified": true
+    },
+    "HOME_CSC": {
+      "bytes": 73789548,
+      "sha256": "ea6567ab86a89d1496a76d414c78444977e8ff066d20beaa032e2117e44e0755",
+      "tar_md5": "72a46a0296b694281f0ee06c25caad79",
+      "tar_md5_verified": true
+    },
+    "new_AP": {
+      "bytes": 12498288761,
+      "sha256": "3dbcedb67c37ef930e579f8941c44728e09ec4bb63f40842b386ade602ab02f3",
+      "tar_md5": "9b2d3601210b4d2fba505bf934bbf623",
+      "tar_md5_verified": true
+    }
+  },
+  "AP_members": [
+    {
+      "name": "boot.img.lz4",
+      "bytes": 29758359,
+      "sha256": "e872fe39444a6b7c173bab4a9d473e20ab896153aa91ab090d0eef6cc993c251",
+      "header_hex": "04224d186c6000000006000000009a",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "dtbo.img.lz4",
+      "bytes": 474961,
+      "sha256": "bd2312176ab536e314078ccca9c702105ff6d7ed31e6d0ad12be09d696b8680d",
+      "header_hex": "04224d186c60000000010000000012",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "super.img.lz4",
+      "bytes": 8578765939,
+      "sha256": "8c77152d519496ad5b22a4f90f4ead10c0d7227f998d41d10771dfcb8cd88335",
+      "header_hex": "04224d186c60b427d83e02000000a3",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "recovery.img.lz4",
+      "bytes": 60578310,
+      "sha256": "90ae2d8d77eb0ee3a18421e6b8c37d8bc409e2fb74d632a34b193c7442cef088",
+      "header_hex": "04224d186c600000880600000000a1",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "vendor_boot.img.lz4",
+      "bytes": 16212308,
+      "sha256": "f2511326bf09fcf50f47586e62d4d5d09e965589d7dacd247b1eb90c36c67a9f",
+      "header_hex": "04224d186c6000000006000000009a",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "vbmeta_system.img.lz4",
+      "bytes": 2946,
+      "sha256": "9496e679d0b5d915724e77873a4ed3847817c1a05b707d6625aefe2051b01a4c",
+      "header_hex": "04224d186c40401000000000000070",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "init_boot.img.lz4",
+      "bytes": 1777275,
+      "sha256": "52aad6b646d6ebe5e1a5d3ddfbb5ef24a2e3a995b9690419dd02edd1bba46c54",
+      "header_hex": "04224d186c6000008000000000001b",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "modem.bin.lz4",
+      "bytes": 18340807,
+      "sha256": "b913f16f30ac3a752b3d07812dde3d68e98b717e9af58eee6ee54c6b5826e8d9",
+      "header_hex": "04224d186c600032b4040000000015",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    },
+    {
+      "name": "qweslicstore.bin.lz4",
+      "bytes": 4394,
+      "sha256": "7abc4174a301e3e8cc179251937a2bb7530944cf4a59feb928989ab8389c94a5",
+      "header_hex": "04224d186c500000040000000000a6",
+      "source": "Unchanged compressed bytes from original EZH3 AP"
+    }
+  ],
+  "note": "Historical source hashes, not a claim all original full archives remain."
+}

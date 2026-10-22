@@ -1,0 +1,338 @@
+{
+  "BL_package": {
+    "bytes": 114196480,
+    "sha256": "a47fced291be4c46b552f52f881a4e99171badd9022f1e7aff69cf597c89f2cb",
+    "identical_to_existing_reviewed_BL": true,
+    "members": [
+      {
+        "name": "abl.elf.lz4",
+        "bytes": 827749,
+        "sha256": "c69033b5be5384fc2803d127b5a99b304799703e944c4d3c03db9aeea1506dbd",
+        "header_hex": "04224d186c60000040000000000019",
+        "source": "CYH4 old BL5 ABL exact original compressed bytes"
+      },
+      {
+        "name": "bksecapp.mbn.lz4",
+        "bytes": 26220,
+        "sha256": "eeed1dd49556b79187814a633f6600e5f044f95bd44a1afcd1f08cc55f6f4f6e",
+        "header_hex": "04224d186c50581201000000000002",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "xbl_s.melf.lz4",
+        "bytes": 774097,
+        "sha256": "158f6b37a2ad470d94871f62887f913b75e33f5cd05f5e1f093bb6d16e8a79a2",
+        "header_hex": "04224d186c60000040000000000019",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "xbl_config.elf.lz4",
+        "bytes": 72234,
+        "sha256": "60ea26d6a48d7c0d714c2ec9d656fccce6b1c218cba6a983050d4b903557819c",
+        "header_hex": "04224d186c5028e202000000000044",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "tz_iccc.mbn.lz4",
+        "bytes": 41634,
+        "sha256": "325588908a14e3b5720ba17e1b4a2304d7a7b9e990766f9998018cb64aba41d8",
+        "header_hex": "04224d186c505862010000000000b2",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "tz.mbn.lz4",
+        "bytes": 1964187,
+        "sha256": "9827c6737f054b06abe8f6551f7eb47141f6a83e63dcb7f175fede82a21d6e0b",
+        "header_hex": "04224d186c60000040000000000019",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "hypvm.mbn.lz4",
+        "bytes": 797833,
+        "sha256": "e72dcecfba13726675c310dfe4d3614dd260d989dc5df5b28e11f8ac41b65063",
+        "header_hex": "04224d186c600000a0000000000028",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "devcfg.mbn.lz4",
+        "bytes": 183574,
+        "sha256": "6dcb30922a7ee255b60ba7804fd82b8a0b9dbe53fc6b51b541123f9fe65aed23",
+        "header_hex": "04224d186c6088020600000000004a",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "aop.mbn.lz4",
+        "bytes": 149541,
+        "sha256": "2264e833164bbf6016fc4cc9cd4ad50705c98f1ebe7de2a1ede5482607fd86ab",
+        "header_hex": "04224d186c60b042040000000000cb",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "aop_devcfg.mbn.lz4",
+        "bytes": 5792,
+        "sha256": "e02b028254a10c45c24eb18df62e88b58fe62cceb4949163a454dec21ec2e52c",
+        "header_hex": "04224d186c406841000000000000f9",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "keymint.mbn.lz4",
+        "bytes": 233179,
+        "sha256": "f418781bd41c5fa321e131cd1971194c8091e7006e6cebe5baf5ecc900e83114",
+        "header_hex": "04224d186c60584206000000000055",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "qupv3fw.elf.lz4",
+        "bytes": 22569,
+        "sha256": "655c836691bde3bc36b1a71192ac4e93fec082aaa7fadc208c06771978b06a70",
+        "header_hex": "04224d186c4010d300000000000048",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "storsec.mbn.lz4",
+        "bytes": 10095,
+        "sha256": "6ff7dda87dd751b2653625eed9cc5e433d7098308dfacae54afa1e1309f46649",
+        "header_hex": "04224d186c405882000000000000ad",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "NON-HLOS.bin.lz4",
+        "bytes": 62740648,
+        "sha256": "fd28b50d5f5c882fff4b0fd0724b319208079d7a54b71fd41147a7b94108dafb",
+        "header_hex": "04224d186c6000f2c7060000000077",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "dspso.bin.lz4",
+        "bytes": 39076422,
+        "sha256": "7dd25b2848481e4fced8c8500ce2d4cc0e0efa4c1baf50f2ecffaa3b8187d824",
+        "header_hex": "04224d186c600000000400000000f3",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "imagefv.elf.lz4",
+        "bytes": 813555,
+        "sha256": "476ca61b95ad435317cdf4c944e7a84aa1d119b95aa34640bc0bb3ccf07e316a",
+        "header_hex": "04224d186c6038218000000000005b",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "uefi.elf.lz4",
+        "bytes": 2733294,
+        "sha256": "c2debf43e3de87464222099023507d58d4152606c4d6f92beb62d8fe523b7417",
+        "header_hex": "04224d186c6038212e0000000000b8",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "uefi_sec.mbn.lz4",
+        "bytes": 79020,
+        "sha256": "3675bf610e40d3bb59c8e32e54adfc67aa3e625633b74ec3bfb128f50c7c073b",
+        "header_hex": "04224d186c5058b202000000000045",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "shrm.elf.lz4",
+        "bytes": 27811,
+        "sha256": "72ad7160edf5bed90cd726cf44739b5186b6b2fa759ee9e1651cbb6ec16bc307",
+        "header_hex": "04224d186c40f0fc000000000000c1",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "cpucp.elf.lz4",
+        "bytes": 77320,
+        "sha256": "06e8e33f2df23c24117b24fbcc86722bb425e1a5f2b0a07c024877057ca06143",
+        "header_hex": "04224d186c50a0ee020000000000ba",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "XblRamdump.elf.lz4",
+        "bytes": 942536,
+        "sha256": "2879442d0ce3eb8698f9933ccad14b1c34ba47e91a6c85d6ef959b6575ea32a6",
+        "header_hex": "04224d186c6098f119000000000098",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "sec.elf.lz4",
+        "bytes": 2407,
+        "sha256": "2b691a373a8e21d6c2892eee29503190c11963a8d13ed7b66de7c0565170bb9c",
+        "header_hex": "04224d186c40383100000000000036",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "apdp.mbn.lz4",
+        "bytes": 2556,
+        "sha256": "7d8df5a76b8ba260f43fca5a274430f88f5f8c88c13afa3979c7a7a35d8c6868",
+        "header_hex": "04224d186c40383100000000000036",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "vbmeta.img.lz4",
+        "bytes": 3971,
+        "sha256": "d99a35a4162b04e6c05ccde10ccba1cd2d7fb90454230adce0da2156e0163e66",
+        "header_hex": "04224d186c40c02500000000000006",
+        "source": "EZH3 stock vbmeta only flags0 to3; OEM signature invalid after change"
+      },
+      {
+        "name": "quest.fv.lz4",
+        "bytes": 2735,
+        "sha256": "d93ae8f8b319d5566994ee201be21f6490ef505c4d53497c6ef8865568c6885b",
+        "header_hex": "04224d186c600002090000000000c4",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "testvector.fv.lz4",
+        "bytes": 33429,
+        "sha256": "48058b787a4d6933a4c77faa7a027c535a4857987a1e113a28e15488681838d0",
+        "header_hex": "04224d186c600002800000000000dc",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "QcomCate.fv.lz4",
+        "bytes": 2481,
+        "sha256": "c46253dd8a3ed3284cc69d2c118f5d02603550db5e6018a8b5d82f0a0e2c8357",
+        "header_hex": "04224d186c6000020800000000009e",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "Core_NON-HLOS.bin.lz4",
+        "bytes": 59727,
+        "sha256": "36748232ba4e098fc19bc17104bdb29c501aa3ef90d271d73c196d424cb7e601",
+        "header_hex": "04224d186c6000020800000000009e",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "tz_hdm.mbn.lz4",
+        "bytes": 857498,
+        "sha256": "71b5211fab63f578bb6a51a93cb2305785784f2f15879e04d81760eaebd228bc",
+        "header_hex": "04224d186c6058221600000000000b",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "tz_kg.mbn.lz4",
+        "bytes": 893216,
+        "sha256": "b2033f1a92b6094f69db58f6a130edc17214b2759e057fca0c2a88c6e7ca4212",
+        "header_hex": "04224d186c6058d217000000000027",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "vaultkeeper.mbn.lz4",
+        "bytes": 659074,
+        "sha256": "3ce21da3fc7679d05bc9b38bf0da109921e017b3ac1a5ab445f3ef17114d666b",
+        "header_hex": "04224d186c605872100000000000fa",
+        "source": "EZH3 original compressed bytes unchanged"
+      },
+      {
+        "name": "featenabler.mbn.lz4",
+        "bytes": 45875,
+        "sha256": "f67ccff82f263b963fc4e9afdfca0bb5fd67283d6838213fb0666ae9db0de1c1",
+        "header_hex": "04224d186c50e07b010000000000c4",
+        "source": "EZH3 original compressed bytes unchanged"
+      }
+    ]
+  },
+  "AP": {
+    "bytes": 8705925120,
+    "sha256": "6e5333c80f71d0b59fd8139f68c5aa7fa7090397981ce85e4635be24f89cf647",
+    "members": [
+      {
+        "name": "boot.img.lz4",
+        "bytes": 29758359,
+        "sha256": "e872fe39444a6b7c173bab4a9d473e20ab896153aa91ab090d0eef6cc993c251",
+        "header_hex": "04224d186c6000000006000000009a",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "dtbo.img.lz4",
+        "bytes": 474961,
+        "sha256": "bd2312176ab536e314078ccca9c702105ff6d7ed31e6d0ad12be09d696b8680d",
+        "header_hex": "04224d186c60000000010000000012",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "super.img.lz4",
+        "bytes": 8578765939,
+        "sha256": "8c77152d519496ad5b22a4f90f4ead10c0d7227f998d41d10771dfcb8cd88335",
+        "header_hex": "04224d186c60b427d83e02000000a3",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "recovery.img.lz4",
+        "bytes": 60578310,
+        "sha256": "90ae2d8d77eb0ee3a18421e6b8c37d8bc409e2fb74d632a34b193c7442cef088",
+        "header_hex": "04224d186c600000880600000000a1",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "vendor_boot.img.lz4",
+        "bytes": 16212308,
+        "sha256": "f2511326bf09fcf50f47586e62d4d5d09e965589d7dacd247b1eb90c36c67a9f",
+        "header_hex": "04224d186c6000000006000000009a",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "vbmeta_system.img.lz4",
+        "bytes": 2946,
+        "sha256": "9496e679d0b5d915724e77873a4ed3847817c1a05b707d6625aefe2051b01a4c",
+        "header_hex": "04224d186c40401000000000000070",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "init_boot.img.lz4",
+        "bytes": 1777275,
+        "sha256": "52aad6b646d6ebe5e1a5d3ddfbb5ef24a2e3a995b9690419dd02edd1bba46c54",
+        "header_hex": "04224d186c6000008000000000001b",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "modem.bin.lz4",
+        "bytes": 18340807,
+        "sha256": "b913f16f30ac3a752b3d07812dde3d68e98b717e9af58eee6ee54c6b5826e8d9",
+        "header_hex": "04224d186c600032b4040000000015",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      },
+      {
+        "name": "qweslicstore.bin.lz4",
+        "bytes": 4394,
+        "sha256": "7abc4174a301e3e8cc179251937a2bb7530944cf4a59feb928989ab8389c94a5",
+        "header_hex": "04224d186c500000040000000000a6",
+        "source": "Unchanged compressed bytes from original EZH3 AP"
+      }
+    ],
+    "excluded": [
+      "meta-data",
+      "meta-data/fota.zip",
+      "misc.bin.lz4",
+      "persist.img.lz4",
+      "userdata.img.lz4"
+    ],
+    "all_payloads_byte_identical_to_stock": true,
+    "custom_Weaver_HDM_USB_or_Root_changes": false
+  },
+  "HOME_CSC": {
+    "bytes": 73789548,
+    "sha256": "ea6567ab86a89d1496a76d414c78444977e8ff066d20beaa032e2117e44e0755",
+    "unmodified": true,
+    "members": [
+      {
+        "name": "cache.img.lz4",
+        "bytes": 1760,
+        "sha256": "a1e300b05d5e9d60462e041cbbf55e689d29418203b7f668f0ebf701fd254c07"
+      },
+      {
+        "name": "prism.img.lz4",
+        "bytes": 73760036,
+        "sha256": "c96b103e1c0f073382dfce32e20c62ca828a0cfa1dc3a0d1f2019238f88cbfdc"
+      },
+      {
+        "name": "optics.img.lz4",
+        "bytes": 19650,
+        "sha256": "454de5e41f5b417f17053bf86fb9f45b28418b453703d94dfaac8d418288b7c5"
+      },
+      {
+        "name": "meta-data/download-list.txt",
+        "bytes": 486,
+        "sha256": "896b6ab71d3bfba4fd5a0d25f33726293f7d88ce2a046637d3dce80030a2b064"
+      }
+    ]
+  }
+}

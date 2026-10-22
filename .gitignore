@@ -1,0 +1,15 @@
+/release-assets/
+/private-backups/
+/.local/
+__pycache__/
+*.pyc
+*.img
+*.lz4
+*.tar
+*.tar.md5
+*.tar.gz
+*.apk
+*.bundle
+*.part[0-9]*
+adbkey*
+*.pem

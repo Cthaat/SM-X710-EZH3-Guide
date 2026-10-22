@@ -1,0 +1,22 @@
+{
+  "assembled": "2026-10-22",
+  "frozen_firmware_and_manager_digests_matched": true,
+  "public_assets": 10,
+  "public_asset_bytes": 9972605999,
+  "source_archive_gzip_integrity": "PASS",
+  "source_archive_members": 86844,
+  "required_source_members_present": 10,
+  "unsafe_source_member_names": 0,
+  "tests": {
+    "Windows": 11,
+    "WSL": 11
+  },
+  "device_operations": 0,
+  "network_pushes": 0,
+  "private_backup_images": 26,
+  "full_rebuild_tested": false,
+  "git_public_candidate_count": 23,
+  "tracked_private_or_large_files": 0,
+  "markdown_relative_links": "PASS",
+  "git_remote_count": 0
+}

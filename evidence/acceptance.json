@@ -1,0 +1,36 @@
+{
+  "evidence_date": "2026-10-16",
+  "assembled": "2026-10-22",
+  "device": "SM-X710 CHN gts9wifi",
+  "system": "BP4A.251205.006.X710ZCS6EZH3",
+  "android": 16,
+  "oneui": 80500,
+  "bootloader_property": "X710ZCU5CYH4",
+  "kernel": "5.15.189-android13-8-33413632-abX710ZCS6EZH3",
+  "kernel_daemon": "KernelSU-Next v3.4.2 /33355 /UAPI5",
+  "uid0": true,
+  "manager_observed": {
+    "package": "com.sukisu.ultra",
+    "version": "v4.1.0",
+    "code": 40201
+  },
+  "raw_bootconfig": "orange",
+  "owner_confirmed": [
+    "original PIN",
+    "apps/photos/files accessible",
+    "Wi-Fi",
+    "touch",
+    "sound"
+  ],
+  "all_files_bitwise_compared": false,
+  "owner_enabled_modules": 10,
+  "hybrid_flash": {
+    "result": "succeed 1 / failed 0",
+    "elapsed": "04:12",
+    "BL_written": 28,
+    "AP_written": 9,
+    "HOME_CSC_written": 3
+  },
+  "stock_boot_init_boot_rescue_success": true,
+  "publication_device_mutations": 0
+}
