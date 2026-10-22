@@ -1,6 +1,6 @@
 # 自行推送与发布
 
-本仓库只在本地创建和提交，未连接或上传 GitHub。
+当前公开仓库为 https://github.com/Cthaat/SM-X710-EZH3-Guide ，附件在 Release。下述命令供自行复制发布时参考。
 
 ## 先审查公开内容和已有提交身份
 
@@ -49,3 +49,21 @@ python tools/assets.py verify manifests/assets.json release-assets
 绝不上传 private-backups。不要把整个仓库文件夹压缩上传；不能把单台实测宣传为全机型或无风险救砖。
 
 工具要求 Python 3.10 或更新版。合并使用同目录硬链接防止覆盖，支持 NTFS/WSL ext4；不支持硬链接的 FAT/exFAT 上请换到支持的磁盘。失败不会生成可用的最终 tar。
+
+## GitHub Pages 教程网页
+
+网页地址：https://cthaat.github.io/SM-X710-EZH3-Guide/ 。Pages 以 main 分支的 /docs 目录为发布源，.nojekyll 禁止二次处理生成的 HTML。正文仍以根 README、FILES、NOTICE 和本目录的 Markdown 为编辑源，不要手动修改生成的 HTML。
+
+修改正文后运行：
+
+```powershell
+python -m pip install -r tools/site-requirements.txt
+python tools/build_site.py
+python tools/build_site.py --check
+```
+
+构建工具仅读取显式列出的公开教程，生成 12 个 HTML 页面、CSS 和 sitemap.xml。不要把 release-assets、private-backups、.local 或设备原始日志复制到 docs。提交生成文件并推送 main 后由 GitHub Pages 发布。
+
+页面含独立标题、摘要、canonical、中英文首页互指和结构化文章信息。站点地图地址为 https://cthaat.github.io/SM-X710-EZH3-Guide/sitemap.xml 。项目子目录的 robots.txt 不能控制域名根的爬虫规则，因此这里不放误导性的 robots.txt。
+
+站长可在 Google Search Console 添加上述网址前缀资源，完成所有权验证后提交 sitemap.xml，并对首页执行一次 URL 检查 / 请求编入索引。验证代码由站长本人从 Search Console 获取，不要公开账号凭据。Bing Webmaster Tools 也可添加并验证站点。发布网页或提交站点地图均不保证收录、排名或具体时间。

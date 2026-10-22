@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教程仓库、Release 附件与 GitHub Pages 发布方法</title><meta name="description" content="公开教程的提交检查、大文件分片上传、附件校验与静态网页更新方法。">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://cthaat.github.io/SM-X710-EZH3-Guide/08-publishing.html">
+<meta property="og:type" content="article"><meta property="og:title" content="教程仓库、Release 附件与 GitHub Pages 发布方法"><meta property="og:description" content="公开教程的提交检查、大文件分片上传、附件校验与静态网页更新方法。"><meta property="og:url" content="https://cthaat.github.io/SM-X710-EZH3-Guide/08-publishing.html"><meta property="og:site_name" content="SM-X710 EZH3 Guide"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "教程仓库、Release 附件与 GitHub Pages 发布方法", "description": "公开教程的提交检查、大文件分片上传、附件校验与静态网页更新方法。", "url": "https://cthaat.github.io/SM-X710-EZH3-Guide/08-publishing.html", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "Cthaat", "url": "https://github.com/Cthaat"}}</script></head>
+<body><header><nav aria-label="Main navigation"><a href="./">三星 Tab S9 刷机教程</a><a href="en.html">English</a><a href="files.html">下载与校验</a><a href="03-root.html">SM-X710 Root</a><a href="04-rescue.html">启动循环救援</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide">GitHub</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/latest">Release 附件</a></nav></header>
+<main><h1 id="自行推送与发布">自行推送与发布</h1>
+<p>当前公开仓库为 https://github.com/Cthaat/SM-X710-EZH3-Guide ，附件在 Release。下述命令供自行复制发布时参考。</p>
+<h2 id="先审查公开内容和已有提交身份">先审查公开内容和已有提交身份</h2>
+<pre><code class="language-powershell">git status --short
+git ls-files
+git log -1 --format=fuller
+</code></pre>
+<p>先检查实际提交的作者/提交者姓名、邮箱及所有已跟踪文件，再推送。修改 git config 只影响未来提交，不会改掉历史邮箱。若需匿名，在首次推送前自行设置合适的 GitHub noreply 身份并用 git commit --amend --reset-author 更新本地首个提交，再检查 git log。不要公开 private-backups 或原始设备日志。</p>
+<p>确认后在 GitHub 创建空仓库，再运行（替换为自己的地址）：</p>
+<pre><code class="language-powershell">git status --short
+git ls-files
+git remote add origin https://github.com/YOUR_NAME/SM-X710-EZH3-Guide.git
+git push -u origin main
+</code></pre>
+<h2 id="大文件单独上传-release">大文件单独上传 Release</h2>
+<p>如果使用已整理好的平铺 Release 附件目录，直接上传目录内全部文件即可，不必再次分片。下载者的校验和合并命令见附件中的 README-RELEASE.md；以下命令用于从完整 release-assets 重新制作分片。</p>
+<p>普通 Git 阻止大于 100 MiB 的文件，Release 单附件须小于 2 GiB，见 <a href="https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github">大文件说明</a> 和 <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">Release 限制</a>。</p>
+<p>release-assets/ 被忽略，不随 push 上传。创建 Release 后另上传五个核心包、需要的管理器、<strong>对应内核源码</strong>、manifests/assets.json 和 SHA256SUMS.txt。第三方工具与三星固件再分发权限须自行核对。</p>
+<p>8.7 GB AP 用工具切为 1 GiB：</p>
+<pre><code class="language-powershell">python tools/assets.py split release-assets/AP_STOCK_EZH3_PRESERVE_DATA_NO_ROOT.tar release-assets/ap-parts
+</code></pre>
+<p>上传生成的全部 partNNNN 与 parts.json；下载者同目录放齐再合并：</p>
+<pre><code class="language-powershell">python tools/assets.py join release-assets/ap-parts/parts.json release-assets/AP_STOCK_EZH3_PRESERVE_DATA_NO_ROOT.tar
+python tools/assets.py verify manifests/assets.json release-assets
+</code></pre>
+<p>合并拒绝覆盖已有文件，逐片/整文件校验。<strong>分片不能直接刷 Odin。</strong> 自行重新生成分片会额外占约 8.7 GB。源码如超过限制也可同法切片。</p>
+<p>绝不上传 private-backups。不要把整个仓库文件夹压缩上传；不能把单台实测宣传为全机型或无风险救砖。</p>
+<p>工具要求 Python 3.10 或更新版。合并使用同目录硬链接防止覆盖，支持 NTFS/WSL ext4；不支持硬链接的 FAT/exFAT 上请换到支持的磁盘。失败不会生成可用的最终 tar。</p>
+<h2 id="github-pages-教程网页">GitHub Pages 教程网页</h2>
+<p>网页地址：https://cthaat.github.io/SM-X710-EZH3-Guide/ 。Pages 以 main 分支的 /docs 目录为发布源，.nojekyll 禁止二次处理生成的 HTML。正文仍以根 README、FILES、NOTICE 和本目录的 Markdown 为编辑源，不要手动修改生成的 HTML。</p>
+<p>修改正文后运行：</p>
+<pre><code class="language-powershell">python -m pip install -r tools/site-requirements.txt
+python tools/build_site.py
+python tools/build_site.py --check
+</code></pre>
+<p>构建工具仅读取显式列出的公开教程，生成 12 个 HTML 页面、CSS 和 sitemap.xml。不要把 release-assets、private-backups、.local 或设备原始日志复制到 docs。提交生成文件并推送 main 后由 GitHub Pages 发布。</p>
+<p>页面含独立标题、摘要、canonical、中英文首页互指和结构化文章信息。站点地图地址为 https://cthaat.github.io/SM-X710-EZH3-Guide/sitemap.xml 。项目子目录的 robots.txt 不能控制域名根的爬虫规则，因此这里不放误导性的 robots.txt。</p>
+<p>站长可在 Google Search Console 添加上述网址前缀资源，完成所有权验证后提交 sitemap.xml，并对首页执行一次 URL 检查 / 请求编入索引。验证代码由站长本人从 Search Console 获取，不要公开账号凭据。Bing Webmaster Tools 也可添加并验证站点。发布网页或提交站点地图均不保证收录、排名或具体时间。</p>
+</main>
+<footer>单台已解锁 SM-X710 / CHN 的实机记录，不代表其他设备兼容。Hardware verified: 2026-10-16. <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/docs/08-publishing.md">查看原文 / Source</a> · <a href="notice.html">文件许可</a> · <a href="sitemap.xml">Sitemap</a></footer></body></html>

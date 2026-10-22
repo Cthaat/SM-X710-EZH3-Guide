@@ -1,6 +1,6 @@
 # 三星 Samsung Galaxy Tab S9 SM-X710：国行 One UI 8.5 升级、KernelSU-Next Root 与救援教程
 
-[English](README.en.md) · [下载刷机包 / Downloads](https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/latest) · [Root 步骤](docs/03-root.md) · [启动循环救援](docs/04-rescue.md)
+[在线教程 / Website](https://cthaat.github.io/SM-X710-EZH3-Guide/) · [English](README.en.md) · [下载刷机包 / Downloads](https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/latest) · [Root 步骤](docs/03-root.md) · [启动循环救援](docs/04-rescue.md)
 
 这是一次真实升级记录：原机为三星 Tab S9（TabS9），已解锁，从 BXG5 经 CYH4 ABL + EZH3 混合 BL 恢复原 PIN 解锁，再使用自编译 KernelSU-Next 3.4.2 boot-only 包取得 Root。这里记录了国行 CHN 固件升级、混合 BL、Odin 刷机、启动循环（bootloop）恢复和文件校验的完整过程。
 

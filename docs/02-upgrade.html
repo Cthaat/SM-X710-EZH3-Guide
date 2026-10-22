@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三星 Tab S9 One UI 8.5 EZH3 混合 BL 升级步骤</title><meta name="description" content="SM-X710 使用 CYH4 ABL5 与 EZH3 其他 BL 成员的单机升级记录，包含 Odin 槽位与开机验收。">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://cthaat.github.io/SM-X710-EZH3-Guide/02-upgrade.html">
+<meta property="og:type" content="article"><meta property="og:title" content="三星 Tab S9 One UI 8.5 EZH3 混合 BL 升级步骤"><meta property="og:description" content="SM-X710 使用 CYH4 ABL5 与 EZH3 其他 BL 成员的单机升级记录，包含 Odin 槽位与开机验收。"><meta property="og:url" content="https://cthaat.github.io/SM-X710-EZH3-Guide/02-upgrade.html"><meta property="og:site_name" content="SM-X710 EZH3 Guide"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "三星 Tab S9 One UI 8.5 EZH3 混合 BL 升级步骤", "description": "SM-X710 使用 CYH4 ABL5 与 EZH3 其他 BL 成员的单机升级记录，包含 Odin 槽位与开机验收。", "url": "https://cthaat.github.io/SM-X710-EZH3-Guide/02-upgrade.html", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "Cthaat", "url": "https://github.com/Cthaat"}}</script></head>
+<body><header><nav aria-label="Main navigation"><a href="./">三星 Tab S9 刷机教程</a><a href="en.html">English</a><a href="files.html">下载与校验</a><a href="03-root.html">SM-X710 Root</a><a href="04-rescue.html">启动循环救援</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide">GitHub</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/latest">Release 附件</a></nav></header>
+<main><h1 id="混合-bl-与-ezh3-系统升级">混合 BL 与 EZH3 系统升级</h1>
+<p>先完成准备与完整 SHA-256 校验。本步骤改写引导链与系统；已有解锁状态及备份是前提。</p>
+<table>
+<thead>
+<tr>
+<th>Odin 槽位</th>
+<th>精确文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BL</td>
+<td>BL_HYBRID_EZH3_CYH4_ABL5_AVB3.tar</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>AP_STOCK_EZH3_PRESERVE_DATA_NO_ROOT.tar</td>
+</tr>
+<tr>
+<td>CP</td>
+<td>留空（SM-X710 Wi-Fi）</td>
+</tr>
+<tr>
+<td>CSC</td>
+<td><strong>HOME_CSC_CHN_X710CHN6EZH3_MQB114014704_REV00_user_low_ship_MULTI_CERT.tar.md5</strong></td>
+</tr>
+<tr>
+<td>USERDATA</td>
+<td>留空</td>
+</tr>
+</tbody>
+</table>
+<p>Options 仅勾 <strong>F. Reset Time</strong>。Auto Reboot、Nand Erase、Re-Partition、Flash Lock、Decompress Data 全关，不加载 PIT。确保使用 HOME_CSC，不能误选清数据 CSC。</p>
+<ol>
+<li>Download 连接后核对机型、COM、全部槽位与选项，点击一次 Start。</li>
+<li>刷写期间保持连接；等 PASS、RES OK、succeed 1 / failed 0。</li>
+<li>Auto Reboot 关闭时，完成后按侧键 + 音量下退出 Download，黑屏后松开正常启动。首次启动较久，避免反复重启。</li>
+<li>用原 PIN 解锁，检查原应用、照片文件、Wi-Fi、触控和声音。正常后才刷 Root。</li>
+</ol>
+<p>本次 AP 包含九个原版压缩镜像，压缩内容不改：boot、dtbo、super、recovery、vendor_boot、vbmeta_system、init_boot、modem、qweslicstore。Wi-Fi AP 内有 modem.bin 不表示需要另填 CP。</p>
+<p>本次 Odin PASS 用时 04:12。BL 归档有 32 成员，HOME 模式跳过 quest.fv、testvector.fv、QcomCate.fv、Core_NON-HLOS.bin，实际写入 BL 28 + AP 9 + HOME_CSC 3 个成员。归档存在不等于全部写入。</p>
+<p>机主确认原 PIN、原文件及基本功能正常，未做全盘逐文件比对。若仍报 PIN 错误，先保存错误并停止追加 Root；不要删除锁屏凭据、EFS、metadata 或执行 factory reset。</p>
+<h2 id="成品制作边界">成品制作边界</h2>
+<p>使用 CYH4 原签名 ABL 替换 EZH3 ABL；其余 BL 成员取 EZH3，vbmeta flags=3，修改后 OEM 签名不再有效，依赖已解锁启动路径。AP 是从 EZH3 原 AP 选出的九个不变压缩镜像。</p>
+<p>.lz4 后缀不证明格式正确。成品核验格式、解压及哈希后冻结，不再随意混入其他 ABL、Magisk init_boot 或 vbmeta。早期完整源固件后来已清理；成品完整保留，制作时源包哈希见 manifests/provenance.json。</p>
+</main>
+<footer>单台已解锁 SM-X710 / CHN 的实机记录，不代表其他设备兼容。Hardware verified: 2026-10-16. <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/docs/02-upgrade.md">查看原文 / Source</a> · <a href="notice.html">文件许可</a> · <a href="sitemap.xml">Sitemap</a></footer></body></html>

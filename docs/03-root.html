@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SM-X710 Root 教程：KernelSU-Next 3.4.2 boot-only AP</title><meta name="description" content="三星 Tab S9 EZH3 内建 KernelSU-Next Root 的 Odin AP 单槽步骤、管理器区别、ADB 核对与模块限制。">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://cthaat.github.io/SM-X710-EZH3-Guide/03-root.html">
+<meta property="og:type" content="article"><meta property="og:title" content="SM-X710 Root 教程：KernelSU-Next 3.4.2 boot-only AP"><meta property="og:description" content="三星 Tab S9 EZH3 内建 KernelSU-Next Root 的 Odin AP 单槽步骤、管理器区别、ADB 核对与模块限制。"><meta property="og:url" content="https://cthaat.github.io/SM-X710-EZH3-Guide/03-root.html"><meta property="og:site_name" content="SM-X710 EZH3 Guide"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SM-X710 Root 教程：KernelSU-Next 3.4.2 boot-only AP", "description": "三星 Tab S9 EZH3 内建 KernelSU-Next Root 的 Odin AP 单槽步骤、管理器区别、ADB 核对与模块限制。", "url": "https://cthaat.github.io/SM-X710-EZH3-Guide/03-root.html", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "Cthaat", "url": "https://github.com/Cthaat"}}</script></head>
+<body><header><nav aria-label="Main navigation"><a href="./">三星 Tab S9 刷机教程</a><a href="en.html">English</a><a href="files.html">下载与校验</a><a href="03-root.html">SM-X710 Root</a><a href="04-rescue.html">启动循环救援</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide">GitHub</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/latest">Release 附件</a></nav></header>
+<main><h1 id="kernelsu-next-342-boot-only-root">KernelSU-Next 3.4.2 boot-only Root</h1>
+<p>先确认 EZH3 原 PIN、文件和基本功能正常，并保存校验过的救援包。本方法是内建 KernelSU-Next 的自编译 boot，不是 Magisk init_boot 修补。</p>
+<ol>
+<li>手动进入 Download，Odin <strong>AP 仅选 AP_ROOT_EZH3_KSUN_NEXT_3.4.2_BOOT_ONLY.tar</strong>。</li>
+<li>BL、CP、CSC、USERDATA 全空，清掉上次完整升级包。</li>
+<li>仅 F. Reset Time，Auto Reboot 关闭，不擦除、不重分区、不锁定。</li>
+<li>Start，PASS 后退出 Download 正常启动。包只有 boot.img.lz4，不写 BL 或 init_boot。</li>
+</ol>
+<p>存在旧模块时可在第一启动早期连续按下并松开音量下至少三次，尝试 KernelSU 安全模式；按键时机未对所有设备验证，不能只凭按过就认为模块已隔离。循环时按救援流程处理。</p>
+<p>boot 的 kernelsu.norc=1 仅跳过缓存的自定义模块 init.rc 注入，<strong>不会禁用所有模块或所有脚本</strong>。核对模块及待生效更新，逐个启用、逐个确认。</p>
+<h2 id="管理器与核对">管理器与核对</h2>
+<p>附件官方 KernelSU_Next_v3.4.2_33355-release.apk 来源与哈希见清单。已有兼容管理器可先保留，不要把不同包名当成同一应用升级。正常开机且 ADB 已授权时，可运行：</p>
+<pre><code class="language-powershell">adb devices
+adb install -r release-assets/KernelSU_Next_v3.4.2_33355-release.apk
+</code></pre>
+<p>若签名冲突先停止核对，不卸载清数据强行覆盖。本次最终管理器观察到的是 <strong>com.sukisu.ultra v4.1.0 / 40201</strong>，不同于所附官方 Next APK；不能声称官方 APK UI 是最终验收的管理器。其余管理器组合需另行验证。</p>
+<p>管理器授权 shell 后，只读检查：</p>
+<pre><code class="language-powershell">adb shell uname -r
+adb shell su -c id
+adb shell su -c 'cat /proc/bootconfig'
+</code></pre>
+<p>本次内核为 5.15.189-android13-8-33413632-abX710ZCS6EZH3，返回 uid=0(root)，守护进程版本/哈希对应 3.4.2。模块能伪装 getprop 的 locked/green，本次原始 bootconfig 是 orange。管理器标签和被修改的属性不能单独证明内核版本或锁状态。</p>
+<p><strong>不要用管理器“直接安装”重复更新此启动组合。</strong> 此前管理器更新后直接安装并启用模块导致循环，回刷旧 Root boot 仍失败；原版 boot + init_boot 恢复后，本冻结 3.4.2 包成功。不能把故障归结为 3.4.2 一概不可用。</p>
+<p>最终机主确认原 PIN、应用文件、Wi-Fi、触控、声音正常；当时 10 个模块由机主手动启用。模块未打包，也不保证跨版本兼容。</p>
+</main>
+<footer>单台已解锁 SM-X710 / CHN 的实机记录，不代表其他设备兼容。Hardware verified: 2026-10-16. <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/docs/03-root.md">查看原文 / Source</a> · <a href="notice.html">文件许可</a> · <a href="sitemap.xml">Sitemap</a></footer></body></html>

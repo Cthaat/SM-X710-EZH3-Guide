@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samsung Tab S9 SM-X710 Root, One UI 8.5 EZH3 Upgrade &amp; Rescue</title><meta name="description" content="Single-device verified China SM-X710 / gts9wifi guide: Android 16 firmware upgrade, hybrid bootloader, KernelSU-Next 3.4.2 root and stock boot/init_boot bootloop rescue.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://cthaat.github.io/SM-X710-EZH3-Guide/en.html"><link rel="alternate" hreflang="zh-CN" href="https://cthaat.github.io/SM-X710-EZH3-Guide/"><link rel="alternate" hreflang="en" href="https://cthaat.github.io/SM-X710-EZH3-Guide/en.html"><link rel="alternate" hreflang="x-default" href="https://cthaat.github.io/SM-X710-EZH3-Guide/">
+<meta property="og:type" content="article"><meta property="og:title" content="Samsung Tab S9 SM-X710 Root, One UI 8.5 EZH3 Upgrade &amp; Rescue"><meta property="og:description" content="Single-device verified China SM-X710 / gts9wifi guide: Android 16 firmware upgrade, hybrid bootloader, KernelSU-Next 3.4.2 root and stock boot/init_boot bootloop rescue."><meta property="og:url" content="https://cthaat.github.io/SM-X710-EZH3-Guide/en.html"><meta property="og:site_name" content="SM-X710 EZH3 Guide"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Samsung Tab S9 SM-X710 Root, One UI 8.5 EZH3 Upgrade & Rescue", "description": "Single-device verified China SM-X710 / gts9wifi guide: Android 16 firmware upgrade, hybrid bootloader, KernelSU-Next 3.4.2 root and stock boot/init_boot bootloop rescue.", "url": "https://cthaat.github.io/SM-X710-EZH3-Guide/en.html", "inLanguage": "en", "author": {"@type": "Person", "name": "Cthaat", "url": "https://github.com/Cthaat"}}</script></head>
+<body><header><nav aria-label="Main navigation"><a href="./">三星 Tab S9 刷机教程</a><a href="en.html">English</a><a href="files.html">下载与校验</a><a href="03-root.html">SM-X710 Root</a><a href="04-rescue.html">启动循环救援</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide">GitHub</a><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/latest">Release 附件</a></nav></header>
+<main><h1 id="samsung-galaxy-tab-s9-sm-x710-one-ui-85-kernelsu-next-root--bootloop-rescue">Samsung Galaxy Tab S9 SM-X710: One UI 8.5, KernelSU-Next Root &amp; Bootloop Rescue</h1>
+<p><a href="https://cthaat.github.io/SM-X710-EZH3-Guide/en.html">Online guide</a> · <a href="index.html">中文教程</a> · <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/tag/v1.0-ezh3-ksun342">Download flash packages</a> · <a href="files.html">File manifest</a></p>
+<p>A <strong>single-device verified</strong> upgrade record for the <strong>China/CHN Samsung Galaxy Tab S9 Wi-Fi, SM-X710 / gts9wifi</strong>. It documents a hybrid bootloader, <strong>X710ZCS6EZH3 / Android 16 / One UI 8.5</strong>, a <strong>builtin KernelSU-Next v3.4.2 boot-only root image</strong>, and recovery from a bootloop using stock boot and init_boot.</p>
+<p><strong>Hardware acceptance: 2026-10-16.</strong> The device was already bootloader-unlocked and rooted before this procedure. Compatibility with other devices, regions, rollback levels, firmware or modules has not been established. Keep your own backups before flashing.</p>
+<h2 id="verified-configuration">Verified configuration</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Actual version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device / region</td>
+<td>Samsung Galaxy Tab S9 SM-X710 / gts9wifi / CHN / Wi-Fi</td>
+</tr>
+<tr>
+<td>Starting firmware</td>
+<td>X710ZCS4BXG5 / Android 14, already unlocked</td>
+</tr>
+<tr>
+<td>Old ABL donor</td>
+<td><strong>X710ZCU5CYH4</strong></td>
+</tr>
+<tr>
+<td>Target firmware</td>
+<td><strong>X710ZCS6EZH3 / Android 16 / SDK 36 / One UI 8.5</strong></td>
+</tr>
+<tr>
+<td>Full Android build</td>
+<td>BP4A.251205.006.X710ZCS6EZH3</td>
+</tr>
+<tr>
+<td>Hybrid BL</td>
+<td>CYH4 ABL5 + other EZH3 BL members; vbmeta flags=3</td>
+</tr>
+<tr>
+<td>Kernel</td>
+<td>5.15.189-android13-8-33413632-abX710ZCS6EZH3</td>
+</tr>
+<tr>
+<td>Root kernel / daemon</td>
+<td>KernelSU-Next v3.4.2 / 33355 / UAPI 5</td>
+</tr>
+<tr>
+<td>Flash tool</td>
+<td>Odin 3.14.4, engine 3.1401</td>
+</tr>
+</tbody>
+</table>
+<p>The owner confirmed the original PIN, existing apps/photos/files, Wi-Fi, touch and sound worked after the upgrade and root. This was not a full bitwise comparison of every user file. KernelSU source and build records are included with the binary; a clean-machine reproducible build has not been verified.</p>
+<h2 id="download-and-reconstruct-the-system-ap">Download and reconstruct the system AP</h2>
+<p>Download the <strong>25 Release assets into one directory</strong>. They include nine parts of the 8.7 GB system AP, the hybrid BL, HOME_CSC, root AP, stock rescue AP, manager APK, Odin ZIP, corresponding kernel source, tutorial ZIP and verification files.</p>
+<p>GitHub's <strong>Code → Download ZIP</strong> contains repository documentation and tools only. Firmware is attached to the <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/tag/v1.0-ezh3-ksun342">Release</a>. The tutorial ZIP attached to that Release is a publication-time snapshot; this repository holds the current guide.</p>
+<p>With Python 3.10+ installed, open PowerShell in the asset directory:</p>
+<pre><code class="language-powershell">python assets.py verify release-upload-manifest.json .
+python assets.py join parts.json AP_STOCK_EZH3_PRESERVE_DATA_NO_ROOT.tar
+</code></pre>
+<p>The tool verifies every part and the reconstructed AP, and refuses to overwrite an existing output. Allow another 8.7 GB for the combined AP. <strong>Never flash a part file directly.</strong></p>
+<p>Expected complete AP SHA-256:</p>
+<pre><code class="language-text">6e5333c80f71d0b59fd8139f68c5aa7fa7090397981ce85e4635be24f89cf647
+</code></pre>
+<h2 id="flashing-sequence">Flashing sequence</h2>
+<p>Read the <a href="01-preparation.html">preconditions and backup boundaries</a> and the detailed linked steps before using Odin.</p>
+<ol>
+<li><strong>Firmware upgrade:</strong> BL = <code>BL_HYBRID_EZH3_CYH4_ABL5_AVB3.tar</code>; AP = reconstructed <code>AP_STOCK_EZH3_PRESERVE_DATA_NO_ROOT.tar</code>; CSC = the supplied <strong>HOME_CSC</strong>. Leave CP and USERDATA empty for this SM-X710 Wi-Fi model. See <a href="02-upgrade.html">upgrade steps</a>.</li>
+<li><strong>Check normal operation first:</strong> verify the original PIN, access to existing files and basic functions before rooting. Retaining data was observed on this device, not guaranteed for other devices.</li>
+<li><strong>Root:</strong> AP = <code>AP_ROOT_EZH3_KSUN_NEXT_3.4.2_BOOT_ONLY.tar</code>. Clear BL, CP, CSC and USERDATA. This changes only boot. See <a href="03-root.html">root steps</a>.</li>
+<li><strong>Bootloop rescue:</strong> AP = <code>AP_RESCUE_EZH3_STOCK_BOOT_INIT_BOOT_ONLY.tar</code>, all four other slots empty. It restores stock EZH3 boot + init_boot while retaining the mixed BL. Download mode must still be accessible. See <a href="04-rescue.html">rescue steps</a>.</li>
+</ol>
+<p>For these steps, only <strong>F. Reset Time</strong> was enabled. Auto Reboot, Nand Erase, Re-Partition, Flash Lock and Decompress Data were off; no PIT was loaded. Follow the manual reboot instructions after Odin PASS. Do not format data, re-lock the bootloader or attempt a full BXG5 downgrade as a routine repair.</p>
+<h2 id="root-and-rollback-details">Root and rollback details</h2>
+<ul>
+<li>CYH4 ABL5 with other EZH3 BL components does not mean the entire device remains at BL4. Full downgrade compatibility is unproven.</li>
+<li><code>kernelsu.norc=1</code> skips cached custom module init.rc injection; it does <strong>not</strong> disable all modules. Existing modules and pending updates can affect startup.</li>
+<li>Updating a manager, using <strong>Direct Install</strong>, and enabling modules preceded a bootloop. The evidence does not isolate one cause. Restoring stock boot + init_boot succeeded; the frozen builtin v3.4.2 AP then worked.</li>
+<li>The official Next v3.4.2 APK is included. The final observed manager was <strong>com.sukisu.ultra v4.1.0 / 40201</strong>, a different package; its APK was not archived. Root was independently confirmed from the kernel/daemon, physical boot hash and <code>uid=0</code>.</li>
+<li>Some modules spoof <code>getprop</code> lock-state values. The original bootconfig was <strong>orange</strong>. Preserve the existing unlocked state; do not infer it from a manager label or spoofable properties.</li>
+<li>Rescue covers boot/init_boot faults with working Download mode. It does not establish recovery from every firmware or hardware failure.</li>
+</ul>
+<h2 id="evidence-source-and-feedback">Evidence, source and feedback</h2>
+<ul>
+<li><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/evidence/acceptance.json">Acceptance record</a> and <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/manifests/SHA256SUMS.txt">file hashes</a></li>
+<li><a href="05-failures.html">Failure history</a>, <a href="07-source.html">source/build notes</a>, <a href="06-backups.html">private backup policy</a></li>
+<li><a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/issues">Report a documentation issue</a>: include model, region, firmware build, affected step and exact error. Omit PINs, accounts, serial numbers, EFS and encryption metadata. Additional devices remain unverified until evidence is reviewed.</li>
+</ul>
+<p>New tutorial content and tools use <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/LICENSE">MIT</a>. Samsung firmware, Odin, Linux, KernelSU and the toolchain retain their respective rights and licenses; see <a href="notice.html">NOTICE</a>. Device-specific private backups are excluded from the public repository and Release.</p>
+</main>
+<footer>单台已解锁 SM-X710 / CHN 的实机记录，不代表其他设备兼容。Hardware verified: 2026-10-16. <a href="https://github.com/Cthaat/SM-X710-EZH3-Guide/blob/main/README.en.md">查看原文 / Source</a> · <a href="notice.html">文件许可</a> · <a href="sitemap.xml">Sitemap</a></footer></body></html>

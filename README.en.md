@@ -1,6 +1,6 @@
 # Samsung Galaxy Tab S9 SM-X710: One UI 8.5, KernelSU-Next Root & Bootloop Rescue
 
-[中文教程](README.md) · [Download flash packages](https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/tag/v1.0-ezh3-ksun342) · [File manifest](FILES.md)
+[Online guide](https://cthaat.github.io/SM-X710-EZH3-Guide/en.html) · [中文教程](README.md) · [Download flash packages](https://github.com/Cthaat/SM-X710-EZH3-Guide/releases/tag/v1.0-ezh3-ksun342) · [File manifest](FILES.md)
 
 A **single-device verified** upgrade record for the **China/CHN Samsung Galaxy Tab S9 Wi-Fi, SM-X710 / gts9wifi**. It documents a hybrid bootloader, **X710ZCS6EZH3 / Android 16 / One UI 8.5**, a **builtin KernelSU-Next v3.4.2 boot-only root image**, and recovery from a bootloop using stock boot and init_boot.
 
