@@ -67,3 +67,6 @@ python tools/build_site.py --check
 页面含独立标题、摘要、canonical、中英文首页互指和结构化文章信息。站点地图地址为 https://cthaat.github.io/SM-X710-EZH3-Guide/sitemap.xml 。项目子目录的 robots.txt 不能控制域名根的爬虫规则，因此这里不放误导性的 robots.txt。
 
 站长可在 Google Search Console 添加上述网址前缀资源，完成所有权验证后提交 sitemap.xml，并对首页执行一次 URL 检查 / 请求编入索引。验证代码由站长本人从 Search Console 获取，不要公开账号凭据。Bing Webmaster Tools 也可添加并验证站点。发布网页或提交站点地图均不保证收录、排名或具体时间。
+
+
+IndexNow 的项目内所有权验证文件为 `indexnow-key.txt`，仅用于通知参与该协议的搜索引擎，不是 GitHub 或 Google 账号凭据。提交时必须指定 keyLocation 为本项目内的完整验证文件地址，只提交本项目路径下的网页。HTTP 200 表示收到 URL；HTTP 202 表示收到但仍待验证，都不能当作已收录证明。Google Search Console 仍需站长独立验证。
