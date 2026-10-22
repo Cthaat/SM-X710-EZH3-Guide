@@ -25,6 +25,8 @@ git push -u origin main
 
 ## 大文件单独上传 Release
 
+如果使用已整理好的平铺 Release 附件目录，直接上传目录内全部文件即可，不必再次分片。下载者的校验和合并命令见附件中的 README-RELEASE.md；以下命令用于从完整 release-assets 重新制作分片。
+
 普通 Git 阻止大于 100 MiB 的文件，Release 单附件须小于 2 GiB，见 [大文件说明](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) 和 [Release 限制](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
 
 release-assets/ 被忽略，不随 push 上传。创建 Release 后另上传五个核心包、需要的管理器、**对应内核源码**、manifests/assets.json 和 SHA256SUMS.txt。第三方工具与三星固件再分发权限须自行核对。
@@ -42,7 +44,7 @@ python tools/assets.py join release-assets/ap-parts/parts.json release-assets/AP
 python tools/assets.py verify manifests/assets.json release-assets
 ```
 
-合并拒绝覆盖已有文件，逐片/整文件校验。**分片不能直接刷 Odin。** 为节省空间尚未预生成分片，执行会额外占约 8.7 GB。源码如超过限制也可同法切片。
+合并拒绝覆盖已有文件，逐片/整文件校验。**分片不能直接刷 Odin。** 自行重新生成分片会额外占约 8.7 GB。源码如超过限制也可同法切片。
 
 绝不上传 private-backups。不要把整个仓库文件夹压缩上传；不能把单台实测宣传为全机型或无风险救砖。
 
